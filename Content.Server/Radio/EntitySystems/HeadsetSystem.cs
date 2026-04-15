@@ -11,8 +11,8 @@ using Content.Shared.Chat;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Content.Shared._NC.CorvaxVars; // Forge-Change
-using Content.Shared._NC.TTS; // Forge-Change
+using Content.Shared._Forge; // Forge-Change
+using Content.Shared._Forge.TTS; // Forge-Change
 using Robust.Shared.Configuration; // Forge-Change
 
 namespace Content.Server.Radio.EntitySystems;
@@ -130,7 +130,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             RaiseNetworkEvent(radioNoiseEvent, actor.PlayerSession);
 
             // Forge-Change-Start
-            if (_cfg.GetCVar(CorvaxVars.TTSEnabled))
+            if (_cfg.GetCVar(ForgeVars.TTSEnabled))
             {
                 var radTtsComp = Comp<TTSComponent>(uid);
                 var userTtsComp = Comp<TTSComponent>(args.MessageSource);
